@@ -1,0 +1,44 @@
+4. Searching element:
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+
+    def insert_at_end(self, data):
+        new_node = Node(data)
+        if not self.head:
+            self.head = new_node
+            return
+        current = self.head
+        while current.next:
+            current = current.next
+        current.next = new_node
+
+    def search_element(self, target):
+        current = self.head
+        while current:
+            if current.data == target:
+                return True
+            current = current.next
+        return False
+
+# Main program
+linked_list = LinkedList()
+
+while True:
+    value = int(input())
+    if value < 0:
+        break
+    linked_list.insert_at_end(value)
+
+target_value = int(input())
+
+if linked_list.search_element(target_value):
+    print(f"{target_value} is present in the list")
+else:
+    print(f"{target_value} not present in the list")
