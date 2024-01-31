@@ -1,0 +1,33 @@
+LINKED LIST - find maximum element in linked list 
+
+def maximumNumber():
+    numbers=[]
+    while True:
+        num=int(input())
+        if num==-1:
+            break
+        numbers.append(num)
+    if not numbers:
+        print("List is empty")
+        return
+    max_number=max(numbers)
+    print(max_number)
+if __name__ == "__main__":
+    maximumNumber()
+
+OUTPUT:
+Input (stdin)
+
+1
+5
+2
+4
+7
+3
+-1
+Your Output (stdout)
+
+7
+Expected Output
+
+7
