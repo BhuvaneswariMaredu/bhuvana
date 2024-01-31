@@ -1,0 +1,57 @@
+Circular linked list - implementation 
+
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+def circularlinkedlist():
+    head = None
+    tail = None
+    while True:
+        value = int(input())
+        if value < 0:
+            break
+        new_node = Node(value)
+        if not head:
+            head = new_node
+            tail = new_node
+        else:
+            tail.next = new_node
+            tail = new_node
+        tail.next = head
+    return head
+def cll(head):
+    if not head:
+        print("Circular linked list is empty")
+        return
+    current = head
+    while True:
+        print(current.data)
+        current = current.next
+        if current == head:
+            break 
+if __name__ == "__main__":
+    cllh = circularlinkedlist()
+    cll(cllh)
+
+OUTPUT:
+Input (stdin)
+
+1
+2
+3
+4
+-1
+Your Output (stdout)
+
+1
+2
+3
+4
+Expected Output
+
+1
+2
+3
+4
