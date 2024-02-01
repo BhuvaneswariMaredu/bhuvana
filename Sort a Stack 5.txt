@@ -1,0 +1,48 @@
+Sort a Stack 5
+
+class Stack:
+    def __init__(self):
+        self.items = []
+    def is_empty(self):
+        return len(self.items) == 0
+    def push(self, item):
+        self.items.append(item)
+    def pop(self):
+        if not self.is_empty():
+            return self.items.pop()
+    def top(self):
+        if not self.is_empty():
+            return self.items[-1]
+def sort_stack(stack):
+    if not stack.is_empty():
+        temp = stack.pop()
+        sort_stack(stack)
+        insert_sorted(stack, temp)
+def insert_sorted(stack, element):
+    if stack.is_empty() or element > stack.top():
+        stack.push(element)
+    else:
+        temp = stack.pop()
+        insert_sorted(stack, element)
+        stack.push(temp)
+n = int(input())
+elements = list(map(int,input().split()))
+stack = Stack()
+for element in elements:
+    stack.push(element)
+sort_stack(stack)
+print(end="")
+while not stack.is_empty():
+    print(stack.pop(),end=" ")
+
+OUTPUT:
+Input (stdin)
+
+5
+1 4 3 2 5
+Your Output (stdout)
+
+5 4 3 2 1 
+Expected Output
+
+5 4 3 2 1
